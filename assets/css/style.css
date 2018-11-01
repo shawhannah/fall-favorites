@@ -1,0 +1,15 @@
+.lead {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: orange;
+}
+.display-4 {
+    text-align: center;
+    font-family: 'Spicy Rice', cursive;
+    letter-spacing: 4px;
+    color: orange;
+}
+
+.jumbotron {
+    background-color: lightyellow!important;
+}
