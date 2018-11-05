@@ -1,93 +1,91 @@
 
-  <script>
+var words = ["pumpkins", "outdoors", "autumn", "cider", "beer"];
+var alphabetList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var guess = [];
+var lettersGuessed = [];
+var totalGuesses = 10;
+var guessesLeft = 0;
+var correctLetters = [];
+var blanks = 0;
+var lettersInWord = [];
+var blanksAndLetters = [];
 
-      // VARIABLES
-      // ==========================================================================
-      var car = {
-        make: "Honda",
-        model: "Fit",
-        color: "Blue Raspberry",
-        mileage: 3000,
-        isWorking: true,
 
-        driveToWork: function() {
-          alert("Old Mileage: " + this.mileage);
+function startGame() {
+    selectedWord = words[Math.floor(Math.random() * words.length)];
+    lettersInWord = selectedWord.split(' ');
+    blanks = lettersInWord.length;
 
-          this.mileage = this.mileage + 8;
+    correctLetters = 0;
+    guessesLeft = 10;
+    lettersGuessed = [];
+    blanksAndLetters = [];
+    alphabetList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-          alert("New mileage: " + this.mileage);
-        },
+    for (var i = 0; i < blanks; i++) {
+        blanksAndLetters[i] = "_";
+        document.querySelector("#guessWord").innerText = blanksAndLetters;
+    }
 
-        driveAroundWorld: function() {
-          alert("Old Mileage: " + this.mileage);
+    document.querySelector("#guessWord").innerText = blanksAndLetters.join(' ');
+    document.querySelector("#guesses-left").innerText = guessesLeft;
+    document.querySelector('#letters-guessed').innerText = lettersGuessed;
 
-          this.mileage = this.mileage + 24000;
+    console.log(selectedWord);
+    console.log(lettersInWord);
+    console.log(blanks);
+    console.log(blanksAndLetters);
+}
 
-          alert("New Mileage: " + this.mileage);
-          alert("Car needs a tuneup!");
-
-          this.isWorking = false;
-        },
-
-        getTuneUp: function() {
-          alert("Car is ready to go!");
-          this.isWorking = true;
-        },
-
-        honk: function() {
-          alert("Honk! Honk!");
+function findGuess(letter) {
+    selectedWord = words[Math.floor(Math.random() * words.length)];
+    for (var i = 0; i < selectedWord.length; i++) {
+        var wordLetter = selectedWord[i];
+        if (wordLetter === letter) {
+            blanks[i] === letter;
         }
-      };
+    }
+}
 
+function checkGuess(guess) {
+    selectedWord = words[Math.floor(Math.random() * words.length)];
+    if (selectedWord.indexOf(guess) > -1) {
+        if (lettersInWord[i] === guess) {
+            correctLetters++;
+            blanksAndLetters[i] = guess;
 
-      // FUNCTIONS
-      // ==============================================================================
-
-      // Logs all of our car's current stats to the console.
-      function reWriteStats() {
-        console.log("Make: " + car.make);
-        console.log("Model: " + car.model);
-        console.log("Color:" + car.color);
-        console.log("Mileage: " + car.mileage);
-        console.log("Is Working: " + car.isWorking);
-        console.log("------------------------------");
-      }
-
-      // MAIN PROCESS
-      // ==============================================================================
-
-      // Captures keyboard input. Depending on the letter pressed it will "call" (execute) different functions.
-      document.onkeyup = function(event) {
-
-        // Captures the key press, converts it to lowercase, and saves it to a variable.
-        var letter = event.key.toLowerCase();
-
-        // If the letter is h, run the following functions/methods.
-        if (letter === "h") {
-          car.honk();
-          reWriteStats();
+            document.querySelector("#guessWord").innerText = blanksAndLetters.join(' ');
         }
+        else {
+            lettersGuessed.push(guess);
+            guessesLeft--;
 
-        // If the letter is d, run the following functions/methods.
-        if (letter === "d") {
-          car.driveToWork();
-          reWriteStats();
+            document.querySelector("#guesses-left").innerText = guessesLeft;
+            document.querySelector("#letters-guessed").innerText = lettersGuessed;
+
+            console.log("Letters guessed - " + lettersGuessed);
+            console.log("Guesses left - " + guessesLeft);
         }
+    }
+}
 
-        // If the letter is w, run the following functions/methods.
-        if (letter === "w") {
-          car.driveAroundWorld();
-          reWriteStats();
-        }
+startGame();
 
-        // If the letter is t, run the following functions/methods.
-        if (letter === "t") {
-          car.getTuneUp();
-          reWriteStats();
-        }
-      };
+document.onkeyup = function (event) {
+    guess = event.key;
+    findGuess(guess);
+};
 
-    </script>
+function reset(){
+    selectedWord = words[Math.floor(Math.random() * words.length)];
+    lettersInWord = selectedWord.split('');     
+    blanks = lettersInWord.length;
 
-  </body>
-</html>
+    letterGuessed = 0;
+    guessesLeft = 10;
+    lettersGuessed = [];
+    blanksAndLetters = [];
+    alphabetList = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    test=false;
+    startGame();
+}

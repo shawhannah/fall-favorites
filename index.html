@@ -20,7 +20,64 @@
         </div>
     </div>
 
-    <script src=""></script>
+    <div class="column">
+        <div class="row">
+            <div class="card w-100 directions-text">
+                <div class="card-body text-center">
+                    <span class="border-0"></span>
+                    <h5 class="card-title text-center">Press any letter to start the game</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="row">
+            <div class="card col-sm your-guess">
+                <div class="card-body">
+                    <h5 class="card-title">Your Guess - </h5>
+
+                </div>
+            </div>
+
+            <div class="card col-sm total-guesses">
+                <h5 class="card-title">Letters Guessed - </h5>
+                <div class="guessed-letters-text card-body text-center">
+                    <span id="letters-guessed"></span>
+                </div>
+            </div>
+
+            <div class="card col-sm remaining-guess">
+                <h5 class="card-title">Guesses Remaining - </h5>
+                <div class="guesses-left-text card-body text-center">
+                    <span id="guesses-left"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="column">
+        <div class="row">
+            <div class="card col-lg current-word">
+                <h5 class="card-title text-center">Word</h5>
+                <div class="guess-word-text card-body text-center">
+                    <span id="guessWord">_ _ _ _ _ _ _</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+    <div class="column">
+        <div class="row">
+            <button type="button" class="btn btn-lg btn-light btn-reset">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <script src="assets/javascript/game.js"></script>
+
+
 
 </body>
 

@@ -13,3 +13,39 @@
 .jumbotron {
     background-color: lightyellow!important;
 }
+
+h5 {
+    text-align: center;
+    color: orange!important;
+    font-weight: bolder;
+    font-family: 'Montserrat', sans-serif!important;
+}
+
+#userguess-text {
+    margin-left: 250px;
+    color: orange!important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#totalguesses-text {
+    margin-left: 250px;
+    color: orange!important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#remainingguess-text {
+    margin-left: 250px;
+    color: orange!important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#guess-word-text {
+    color: orange!important;
+    font-size: x-large!important;
+}
+
+.btn-reset {
+    background-color: orange!important;
+    color: white!important;
+    margin-left: 45%;
+}
