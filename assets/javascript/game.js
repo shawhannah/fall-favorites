@@ -1,7 +1,6 @@
 
 var words = ["pumpkins", "outdoors", "autumn", "cider", "beer"];
 var alphabetList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var guess = [];
 var lettersGuessed = [];
 var totalGuesses = 10;
 var guessesLeft = 0;
@@ -59,13 +58,13 @@ function startGame() {
     console.log(blanksAndLetters);
 }
 
-function checkGuess(guess) {
+function checkGuess(userKey) {
     selectedWord = words[Math.floor(Math.random() * words.length)];
-    if (selectedWord.indexOf(guess) > -1) {
+    if (selectedWord.indexOf(userKey) > -1) {
         for (var i = 0; i < blanks; i++) {
-            if (lettersInWord[i] === guess) {
+            if (lettersInWord[i] === userKey) {
                 totalNumberWins++;
-                blanksAndLetters[i] = guess;
+                blanksAndLetters[i] = userKey;
 
                 document.querySelector("#guess-word").innerText = blanksAndLetters.join(' ');
             }
@@ -74,7 +73,7 @@ function checkGuess(guess) {
         console.log(blanksAndLetters);
     }
     else {
-        lettersGuessed.push(guess);
+        lettersGuessed.push(userKey);
         guessesLeft--;
 
         document.querySelector("#guesses-left").innerText = guessesLeft;
@@ -87,14 +86,14 @@ function checkGuess(guess) {
 }
 
 
-function winsLosses(){
-    if(totalNumberWins === blanks){
+function winsLosses() {
+    if (totalNumberWins === blanks) {
         wins++;
 
         document.querySelector("#wins-number").innerText = wins;
         reset();
     }
-    else if(guessesRemaining === 0){
+    else if (guessesLeft === 0) {
         losses++;
 
         document.querySelector("#total-losses").innerText = losses;
@@ -118,4 +117,9 @@ document.onkeyup = function (event) {
             winsLosses();
         }
     }
+}
+
+
+function myFunction() {
+    location.reload();
 }
