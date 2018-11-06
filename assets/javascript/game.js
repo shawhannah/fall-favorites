@@ -32,7 +32,7 @@ function reset() {
 
 function startGame() {
     selectedWord = words[Math.floor(Math.random() * words.length)];
-    lettersInWord = selectedWord.split(' ');
+    lettersInWord = selectedWord.split('');
     blanks = lettersInWord.length;
 
     correctLetters = 0;
@@ -59,14 +59,16 @@ function startGame() {
 }
 
 function checkGuess(userKey) {
-    selectedWord = words[Math.floor(Math.random() * words.length)];
     if (selectedWord.indexOf(userKey) > -1) {
         for (var i = 0; i < blanks; i++) {
             if (lettersInWord[i] === userKey) {
-                totalNumberWins++;
+                // don't count wins until your entire word has been guessed
+                // ie. selectedWord === blanksAndLetters.join('') totalNumberWins++;
                 blanksAndLetters[i] = userKey;
 
-                document.querySelector("#guess-word").innerText = blanksAndLetters.join(' ');
+
+
+                document.querySelector("#guess-word").innerText = blanksAndLetters.join('');
             }
         }
 
