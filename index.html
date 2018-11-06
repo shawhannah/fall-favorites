@@ -33,13 +33,16 @@
 
     <div class="column">
         <div class="row">
-            <div class="card col-sm your-guess">
-                <div class="card-body">
-                    <h5 class="card-title">Your Guess - </h5>
-
+            <div class="card col-sm total-guesses">
+                <h5 class="card-title">Wins - </h5>
+                <div class="wins-text card-body text-center">
+                    <span id="wins-number"></span>
+                </div>
+                <h5 class="card-title">Losses - </h5>
+                <div class="losses-text card-body text-center">
+                    <span id="total-losses"></span>
                 </div>
             </div>
-
             <div class="card col-sm total-guesses">
                 <h5 class="card-title">Letters Guessed - </h5>
                 <div class="guessed-letters-text card-body text-center">
@@ -61,7 +64,7 @@
             <div class="card col-lg current-word">
                 <h5 class="card-title text-center">Word</h5>
                 <div class="guess-word-text card-body text-center">
-                    <span id="guessWord">_ _ _ _ _ _ _</span>
+                    <span id="guess-word">_ _ _ _ _ _ _ _ _ _</span>
                 </div>
             </div>
         </div>
