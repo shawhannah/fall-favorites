@@ -7,3 +7,4 @@
   1. Open ['index'](index.html)
 
   2. Click on any letter key to start the game. Use the keys to guess which letters will make up the hidden word until you run out of guesses. 
+    

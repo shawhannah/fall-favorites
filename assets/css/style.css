@@ -1,51 +1,77 @@
 .lead {
-    text-align: center;
     font-family: 'Montserrat', sans-serif;
-    color: orange;
+    color: lightyellow;
+    font-size: larger!important;
+    text-align: center;
 }
 .display-4 {
-    text-align: center;
     font-family: 'Spicy Rice', cursive;
-    letter-spacing: 4px;
-    color: orange;
+    letter-spacing: 12px;
+    color: lightyellow;
+    text-align: center;
 }
 
 .jumbotron {
-    background-color: lightyellow!important;
+    background-color: #f77204!important;
 }
 
-h5 {
+
+body {
+    background-color: #ea954f!important;
+}
+
+.directions-text {
+    background-color: #f77204;
+    margin: auto;
     text-align: center;
-    color: orange!important;
     font-weight: bolder;
-    font-family: 'Montserrat', sans-serif!important;
+    color: white;
 }
 
-#userguess-text {
-    margin-left: 250px;
-    color: orange!important;
+.letters-guessed-text {
+    margin-left: 225px;
+    color: #f77204!important;
     font-family: 'Montserrat', sans-serif;
 }
 
-#totalguesses-text {
-    margin-left: 250px;
-    color: orange!important;
+.guesses-text {
+    margin-left: 300px;
+    color: #f77204!important;
     font-family: 'Montserrat', sans-serif;
 }
 
-#remainingguess-text {
-    margin-left: 250px;
-    color: orange!important;
-    font-family: 'Montserrat', sans-serif;
+.guess-word-text {
+    color: #f77204;
+    font-size: x-large;
+    font-weight: bolder;
+    text-align: center;
 }
 
-#guess-word-text {
-    color: orange!important;
-    font-size: x-large!important;
+#letters-guessed {
+    margin-left: 250px;
+}
+
+#guesses-left {
+    margin-left: 360px;
+}
+
+img {
+    height: 100%;
+}
+
+.photo-card {
+    overflow: hidden;
+    width: 300px;
+}
+
+.photo-row {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .btn-reset {
-    background-color: orange!important;
+    background-color: #f77204!important;
     color: white!important;
-    margin-left: 45%;
+    text-align: center;
+    margin: auto;
 }

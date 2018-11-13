@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Spicy+Rice" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Hangman Game</title>
 </head>
 
@@ -22,38 +22,10 @@
 
     <div class="column">
         <div class="row">
-            <div class="card w-100 directions-text">
-                <div class="card-body text-center">
+            <div class="card w-25 directions-text mx-auto">
+                <div class="card-body">
                     <span class="border-0"></span>
-                    <h5 class="card-title text-center">Press any letter to start the game</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="column">
-        <div class="row">
-            <div class="card col-sm total-guesses">
-                <h5 class="card-title">Wins - </h5>
-                <div class="wins-text card-body text-center">
-                    <span id="wins-number"></span>
-                </div>
-                <h5 class="card-title">Losses - </h5>
-                <div class="losses-text card-body text-center">
-                    <span id="total-losses"></span>
-                </div>
-            </div>
-            <div class="card col-sm total-guesses">
-                <h5 class="card-title">Letters Guessed - </h5>
-                <div class="guessed-letters-text card-body text-center">
-                    <span id="letters-guessed"></span>
-                </div>
-            </div>
-
-            <div class="card col-sm remaining-guess">
-                <h5 class="card-title">Guesses Remaining - </h5>
-                <div class="guesses-left-text card-body text-center">
-                    <span id="guesses-left"></span>
+                    <h5 class="start-game card-title">Press any letter to start the game</h5>
                 </div>
             </div>
         </div>
@@ -61,9 +33,50 @@
     <br>
     <div class="column">
         <div class="row">
+            <div class="card w-50 total-guesses">
+                <h5 class="card-title letters-guessed-text">Letters Guessed</h5>
+                <div class="card-body">
+                    <span id="letters-guessed"></span>
+                </div>
+            </div>
+            <br>
+            <div class="card w-50 remaining-guess">
+                <h5 class="card-title guesses-text">Guesses Remaining</h5>
+                <div class="card-body">
+                    <span id="guesses-left"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <div class="row photo-row">
+        <div class="card photo-card">
+            <img class="card-img-top" src="assets\images\cider.jpg" alt="cider">
+            <div class="card-img-overlay"></div>
+        </div>
+        <div class="card photo-card">
+            <img class="card-img-top" src="assets\images\leaves.jpeg" alt="leaves">
+            <div class="card-img-overlay"></div>
+        </div>
+        <div class="card photo-card">
+            <img class="card-img-top" src="assets\images\beer.jpg" alt="pump-beer">
+            <div class="card-img-overlay">
+            </div>
+        </div>
+        <div class="card photo-card">
+            <img class="card-img-top" src="assets\images\pumpkins.png" alt="pumpy">
+            <div class="card-img-overlay">
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <div class="column">
+        <div class="row">
             <div class="card col-lg current-word">
-                <h5 class="card-title text-center">Word</h5>
-                <div class="guess-word-text card-body text-center">
+                <h5 class="guess-word-text card-title">Word</h5>
+                <div class="guess-word-text card-body">
                     <span id="guess-word">_ _ _ _ _ _ _ _ _ _</span>
                 </div>
             </div>
@@ -74,7 +87,7 @@
     <br>
     <div class="column">
         <div class="row">
-            <button type="button" class="btn btn-lg btn-light btn-reset" onclick="myFunction()">PLAY AGAIN</button>
+            <button type="button" class="btn-reset btn" onclick="myFunction()">PLAY AGAIN</button>
         </div>
     </div>
 

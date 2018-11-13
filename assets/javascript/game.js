@@ -5,12 +5,11 @@ var lettersGuessed = [];
 var totalGuesses = 10;
 var guessesLeft = 0;
 var correctLetters = [];
-var wins = 0;
-var totalNumberWins = 0;
-var losses = 0;
 var blanks = 0;
 var lettersInWord = [];
 var blanksAndLetters = [];
+var song = new Audio("song.mp3"); //could not find a safe website to download MP3
+//this was the last thing i had an issue with and wanted to go ahead and turn in(attempted audio code below)
 
 
 function reset() {
@@ -22,10 +21,8 @@ function reset() {
     guessesLeft = 10;
     lettersGuessed = [];
     correctLetters = [];
-    totalNumberWins = 0;
     blanksAndLetters = [];
     alphabetList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    test = false;
     startGame();
 }
 
@@ -36,7 +33,6 @@ function startGame() {
     blanks = lettersInWord.length;
 
     correctLetters = 0;
-    totalNumberWins = 0;
     guessesLeft = 10;
     lettersGuessed = [];
     blanksAndLetters = [];
@@ -50,7 +46,6 @@ function startGame() {
     document.querySelector("#guess-word").innerText = blanksAndLetters.join(' ');
     document.querySelector("#guesses-left").innerText = guessesLeft;
     document.querySelector("#letters-guessed").innerText = lettersGuessed;
-    document.querySelector("#total-losses").innerText = losses;
 
     console.log(selectedWord);
     console.log(lettersInWord);
@@ -62,13 +57,12 @@ function checkGuess(userKey) {
     if (selectedWord.indexOf(userKey) > -1) {
         for (var i = 0; i < blanks; i++) {
             if (lettersInWord[i] === userKey) {
-                // don't count wins until your entire word has been guessed
-                // ie. selectedWord === blanksAndLetters.join('') totalNumberWins++;
+
                 blanksAndLetters[i] = userKey;
 
 
 
-                document.querySelector("#guess-word").innerText = blanksAndLetters.join('');
+                document.querySelector("#guess-word").innerText = blanksAndLetters.join(' ');
             }
         }
 
@@ -83,40 +77,29 @@ function checkGuess(userKey) {
 
         console.log("Letters guessed - " + lettersGuessed);
         console.log("Guesses left - " + guessesLeft);
+
+        if (guessesLeft === 0) {
+            alert("You lose! Click the button to try again!");
+            song.play();
+
+
+        }
     }
 
-}
-
-
-function winsLosses() {
-    if (totalNumberWins === blanks) {
-        wins++;
-
-        document.querySelector("#wins-number").innerText = wins;
-        reset();
-    }
-    else if (guessesLeft === 0) {
-        losses++;
-
-        document.querySelector("#total-losses").innerText = losses;
-        reset();
-    }
 }
 
 
 startGame();
 
 document.onkeyup = function (event) {
-    test = true;
     var letterGuessed = event.key;
     for (var i = 0; i < alphabetList.length; i++) {
-        if (letterGuessed === alphabetList[i] && test === true) {
+        if (letterGuessed === alphabetList[i]) {
             var breakAlphabetList = alphabetList.splice(i, 1);
 
             console.log("spliced letter is " + breakAlphabetList);
 
             checkGuess(letterGuessed);
-            winsLosses();
         }
     }
 }
